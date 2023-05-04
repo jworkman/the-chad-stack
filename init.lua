@@ -16,6 +16,9 @@ if not vim.loop.fs_stat(lazypath) then
   require("core.bootstrap").lazy(lazypath)
 end
 
+
+vim.api.nvim_set_hl(0, '@property', { fg = "#cc4b8c" })
+
 dofile(vim.g.base46_cache .. "defaults")
 vim.opt.rtp:prepend(lazypath)
 require "plugins"
