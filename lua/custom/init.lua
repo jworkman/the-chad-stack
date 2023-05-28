@@ -9,4 +9,6 @@
 vim.g.copilot_assume_mapped = true
 -- vim.api.nvim_set_hl(0, 'Comment', { fg = "#aaaaaa", bold = true })
 vim.api.nvim_set_hl(0, '@property', { fg = "#cc4b8c" })
+vim.g.snipmate_snippets_path = "~/.config/nvim/snippets"
 
+vim.wo.relativenumber = true

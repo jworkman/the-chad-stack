@@ -4,7 +4,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "clangd" }
+local servers = { "html", "cssls", "clangd", "emmet_ls", "intelephense" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -13,5 +13,23 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+lspconfig.emmet_ls.setup({
+    -- on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    }
+})
 -- 
 -- lspconfig.pyright.setup { blabla}
+
+require("luasnip.loaders.from_snipmate").load()
+-- specify the full path...
+require("luasnip.loaders.from_snipmate").lazy_load({paths = "~/.config/nvim/lua/custom/snippets"})

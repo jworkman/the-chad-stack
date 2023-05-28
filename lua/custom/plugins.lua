@@ -73,6 +73,12 @@ local plugins = {
     end,
   },
 
+  {
+    "aca/emmet-ls",
+    lazy = false,
+    enabled = true
+  },
+
 }
 
 return plugins
