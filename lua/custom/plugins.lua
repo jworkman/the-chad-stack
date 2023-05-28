@@ -68,9 +68,7 @@ local plugins = {
     enabled = true,
     cmd = "Copilot",
     event = "InsertEnter",
-    config = function()
-      require("copilot").setup({})
-    end,
+    config = overrides.copilot
   },
 
   {
